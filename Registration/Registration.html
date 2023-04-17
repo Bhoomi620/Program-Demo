@@ -1,0 +1,63 @@
+<title>Registration</title>
+   
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+      <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&amp;display=swap" rel="stylesheet"> -->
+      <link rel="stylesheet" href="Registration.css">
+
+  </head>
+  <body>
+      <div class="background">
+          <div class="shape"></div>
+      </div>
+      <form name="myForm" id="form" onsubmit="return validateForm()" method="post">
+        <h3>Registration Here</h3>
+        <input type="text" placeholder="Title" id="title">
+          <input type="text" placeholder="FirstName" id="firstName" >
+          <input type="text" placeholder="LastName" id="lastName" >
+          <input type="text" placeholder="Your Email"  id="email" >
+          <input type="password" placeholder="password" id="password">
+          <input type="password" placeholder="Confirm Password" id="confirmpassword" >
+          <input type="checkbox" id="check">
+          <button type="button" value="submit" onclick="validateForm()">Submit</button>
+          <!-- <p class="loginhere">
+            Have already an account ? <a href="..//Login/Login.html" class="loginhere-link">Login here</a>
+            </p> -->
+      </form>
+
+<script>
+function validateForm(){
+
+
+      let obj= {        
+          "title": document.getElementById("title").value,
+          "firstName": document.getElementById("firstName").value,
+          "lastName": document.getElementById("lastName").value,
+          "email": document.getElementById("email").value,
+          "password":document.getElementById("password").value,
+          "confirmPassword": document.getElementById("confirmpassword").value,
+          "acceptTerms": document.getElementById("check").checked
+        }
+          fetch("https://real-pear-fly-kilt.cyclic.app/accounts/register",{
+
+            method:"post",
+            body: JSON.stringify(obj),
+            headers:{
+
+              'content-Type':"application/json"
+            }
+          }).then(function(value){
+            return value.json();
+          }).then(function(value){
+            console.log(value);
+          })
+}
+
+  </script>
+
+<!--       
+      <script src="main.js"></script>
+      -->
+
+  </body>
+  </html>

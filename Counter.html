@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Counter</title>
+
+  <!-- styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <main>
+    <div class="container">
+      <h1>counter</h1>
+      <span id="value">0</span>
+      <div class="button-container">
+        <button class="btn decrease" onclick="Decrease()">decrease</button>
+        <button class="btn reset" onclick="Reset()">reset</button>
+        <button class="btn increase" onclick="Increase()">increase</button>
+        <button class="btn Multiplication" onclick="Multiplication()">Multiplication</button>
+        <button class="btn division" onclick="division()">division</button>
+      
+      </div>
+    </div>
+  </main>
+  <!-- javascript -->
+  <script>
+
+    var counter = 0;
+
+    function displayInfo() {
+      document.getElementById("value").innerHTML = counter;
+    }
+
+    function Increase() {
+
+      counter = counter + 1;
+      displayInfo();
+    }
+    
+    function Decrease(){
+
+      if(counter>0){
+      counter = counter - 1;
+      displayInfo();
+      }
+    }
+    
+    function Multiplication(){
+
+    if(counter>0){
+    counter = counter *2;
+    displayInfo();  
+    }
+    }
+
+    function division(){
+
+    if(counter>0){
+    counter = counter /2;
+    displayInfo();  
+    }
+    }
+
+    function Reset(){
+      counter = 0;
+      displayInfo();
+    }
+
+
+  </script>
+</body>
+
+</html>
